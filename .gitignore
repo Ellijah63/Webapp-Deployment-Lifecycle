@@ -1,0 +1,16 @@
+# Build output and compiled binaries
+target/
+*.war
+*.class
+
+# IDE and Editor configurations
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
