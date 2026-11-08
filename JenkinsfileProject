@@ -33,7 +33,7 @@ pipeline {
 				echo "Deploying to Dev Webserver"
 				deploy adapters: [
 					tomcat9(
-						credentialsId: 'tomcat-creds',
+						credentialsId: 'tomcat_creds',
 						path: '',
 						url: 'http://10.0.0.173:8080/manager/text'
 					)
@@ -50,7 +50,7 @@ pipeline {
 				echo "Deploying to Qa Webserver"
 				deploy adapters: [
 					tomcat9(
-						credentialsId: 'tomcat-creds',
+						credentialsId: 'tomcat_creds',
 						path: '',
 						url: 'http://10.0.0.147:8080/manager/text'
 					)
@@ -68,7 +68,7 @@ pipeline {
 				input(message: "Do you want to proceed to PROD?", ok: "Proceed")
 				deploy adapters: [
 					tomcat9(
-						credentialsId: 'tomcat-creds',
+						credentialsId: 'tomcat_creds',
 						path: '',
 						url: 'http://10.0.0.17:8080/manager/text'
 					)
