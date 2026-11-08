@@ -4,7 +4,7 @@ pipeline {
         string(name: 'BRANCH_NAME', defaultValue: 'fe/dev', description: 'Specify the branch name to deploy') 
     }
     stages {
-        stage("CHECKOUT"} {
+        stage("CHECKOUT") {
             steps {
               script {
                   // Checkout for specified branch using parameter
