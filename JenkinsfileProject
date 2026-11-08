@@ -39,7 +39,7 @@ pipeline {
 					)
 				],
 				contextPath: '/Webapp-Deployment-Lifecycle',
-				war: 'target/target/Webapp-Deployment-Lifecycle.war'
+				war: '**/*.war'
 			}
 		}
 		stage("Qa Deployment") {
@@ -56,7 +56,7 @@ pipeline {
 					)
 				],
 				contextPath: '/Webapp-Deployment-Lifecycle',
-				war: 'target/target/Webapp-Deployment-Lifecycle.war'
+				war: '**/*.war'
 			}
 		}
 		stage("Prod Deployment") {
@@ -74,7 +74,7 @@ pipeline {
 					)
 				],
 				contextPath: '/Webapp-Deployment-Lifecycle',
-				war: 'target/target/Webapp-Deployment-Lifecycle.war'
+				war: '**/*.war'
 			}
 		}
 	}
