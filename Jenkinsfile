@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    parameter {
+    parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'fe/dev', description: 'Specify the branch name to deploy') 
     }
     stages {
