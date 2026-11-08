@@ -30,7 +30,16 @@ pipeline {
 				expression { params.BRANCH_NAME == 'Dev' }
 			}
 			steps {
-				deploy('10.0.0.173', 'tomcat', 'tomcat', 'http://10.0.0.173:8080/manager/text', '/Webapp-Deployment-Lifecycle', 'Dev')
+				echo "Deploying to Dev Webserver"
+				deploy adapters: [
+					tomcat(
+						credentialsId: 'tomcat-creds',
+						path: '',
+						url: 'http://10.0.0.147:8080/manager/text'
+					)
+				],
+				contextPath: '/Webapp-Deployment-Lifecycle',
+				war: 'target/target/Webapp-Deployment-Lifecycle.war'
 			}
 		}
 		stage("Qa Deployment") {
