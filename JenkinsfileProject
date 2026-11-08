@@ -39,7 +39,7 @@ pipeline {
 					)
 				],
 				contextPath: '/Webapp-Deployment-Lifecycle',
-				war: '**/*.war'
+				war: 'target/Webapp-Deployment-Lifecycle.war'
 			}
 		}
 		stage("Qa Deployment") {
