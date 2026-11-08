@@ -22,5 +22,24 @@ pipeline {
 		stage("BUILD") {
 			steps {
 				sh "mvn clean package"
-				sh "mv target
-					
+				sh "mv target/ROOT.war target/Webapp-Deployment-Lifecycle.war"
+			}
+		}
+		stage("Dev Deployment") {
+			steps {
+				deployToTomcat('10.0.0.173', 'tomcat', 'tomcat', 'http://10.0.0.173:8080/manager/text', '/Webapp-Deployment-Lifecycle', 'Dev')
+			}
+		}
+		stage("Qa Deployment") {
+			steps {
+				deployToTomcat('10.0.0.147', 'tomcat', 'tomcat', 'http://10.0.0.147:8080/manager/text', '/Webapp-Deployment-Lifecycle', 'Qa')
+			}
+		}
+		stage("Prod Deployment") {
+			steps {
+				input(message: "Do you want to proceed to PROD?", ok: "Proceed")
+				deployToTomcat('10.0.0.17', 'tomcat', 'tomcat', 'http://10.0.0.17:8080/manager/text', '/Webapp-Deployment-Lifecycle', 'Prod')
+			}
+		}
+	}
+}				
